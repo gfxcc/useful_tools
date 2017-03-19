@@ -7,13 +7,13 @@
 
 MAX_FILES_NUM=93
 
-filename="/home/ubuntu/sql_auto_backup/"`date +%F_%T`".sql"
+filename="/home/ubuntu/sql_auto_backup/$(date +%F_%T).sql"
 
-mysqldump -u root iShare_server > $filename &>/dev/null
+mysqldump -u root iShare_server > $filename
 
 # delete recodes created three month ago
 file_num=`ls /home/ubuntu/sql_auto_backup | wc -l`
-if [[ $file_num -gt $MAX_FILES_NUM ]]; then
-    need_delete_num=`expr $file_num - $MAX_FILES_NUM`
-    rm -f $(ls -t /home/ubuntu/sql_auto_backup | tail -$need_delete_num)
-fi
+while [[ $file_num -gt $MAX_FILES_NUM ]]; do
+    rm -f /home/ubuntu/sql_auto_backup/$(ls -t /home/ubuntu/sql_auto_backup | tail -1)
+    file_num=$((file_num - 1))
+done
