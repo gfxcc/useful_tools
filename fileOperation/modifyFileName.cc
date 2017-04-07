@@ -1,3 +1,12 @@
+/*
+ *
+ * Created by YongCao at Apr/07/2017
+ *
+ * This tools used to rename multiple files by rules
+ *
+ * */
+
+
 #include <sys/types.h>
 #include <dirent.h>
 #include <errno.h>
@@ -52,7 +61,7 @@ int main()
     }
 
     cout << files.size() << " files going to be renamed: " << endl;
-    
+
     for (size_t i = 0; i < files.size(); i++) {
         cout << files[i] << " ->" << new_names[i] << endl;
     }
