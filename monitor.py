@@ -35,8 +35,8 @@ websites = {
         'keyword' : 'out of stock'
     },
     'gamestop' :  {
-        'web' : '',
-        'keyword' : ''
+        'web' : 'http://www.gamestop.com/nintendo-switch/consoles/nintendo-switch-console-with-gray-joy-con/141820',
+        'keyword' : 'not available'
     }
 }
 
@@ -57,7 +57,7 @@ for name, content in websites.iteritems():
         print '%-10s sold out\n' % name
         if SOLD_OUT_MAIL == 1:
             sendMail('gfxcc@ubuntu.com', 'yong_stevens@outlook.com', 'switch sold out', name)
-        else:
-            print '%-10s accessible\n' % name
-            if AVAILABLE_MAIL == 1:
-                sendMail('gfxcc@ubuntu.com', 'yong_stevens@outlook.com', 'switch might available now', name)
+    else:
+        print '%-10s accessible\n' % name
+        if AVAILABLE_MAIL == 1:
+            sendMail('gfxcc@ubuntu.com', 'yong_stevens@outlook.com', 'switch might available now', name)
