@@ -27,7 +27,7 @@ websites = {
             'gray' : 'http://www.bestbuy.com/site/nintendo-switch-32gb-console-gray-joy-con/5670003.p?skuId=5670003',
             'blue & red' : 'http://www.bestbuy.com/site/nintendo-switch-32gb-console-neon-red-neon-blue-joy-con/5670100.p?skuId=5670100'
         },
-        'keyword' : ['sold out']
+        'keyword' : ['\"buttonmessage\":\"sold out\"']
     },
     'target'  : {
         'web' : {
@@ -74,11 +74,11 @@ for name, content in websites.iteritems():
             continue
         html = response.read().lower()
 
-        '''
-        if name == 'walmart':
+
+        if name == 'toysrus':
             output = open('index.html', 'w')
             print >> output, html
-        '''
+
 
         for keyword in content['keyword']:
             if html.find(keyword) != -1:
